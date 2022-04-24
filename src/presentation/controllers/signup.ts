@@ -19,9 +19,13 @@ export class SignUpController implements Controller {
       }
     }
     // verify a valid email
-    if (!this.emailValidator.isValid(httpRequest.body.email)) {
+    const isValid = this.emailValidator.isValid(httpRequest.body.email)
+    if (!isValid) {
       return badRequest(new InvalidParamError('email'))
     }
-    throw new Error('Class in construction.')
+    return {
+      statusCode: 200,
+      body: {}
+    }
   }
 }

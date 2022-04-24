@@ -4,6 +4,7 @@ import { badRequest, serverError } from './../helpers/http-helper'
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
+
   constructor (emailValidator: EmailValidator) {
     this.emailValidator = emailValidator
   }

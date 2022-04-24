@@ -12,9 +12,6 @@ export class SignUpController implements Controller {
       }
     }
 
-    return {
-      statusCode: 200,
-      body: {}
-    }
+    throw new Error('Class in construction.')
   }
 }

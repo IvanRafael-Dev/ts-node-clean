@@ -1,11 +1,6 @@
+import { MissingParamError } from '../errors/missing-param-error'
 import { HttpRequest, HttpResponse } from './../protocols/http'
 
-export class MissingParamError extends Error {
-  constructor (paramName: string) {
-    super(`Missing param: ${paramName}`)
-    this.name = 'MissingParamError'
-  }
-}
 export class SignUpController {
   handle (httpRequest: HttpRequest): HttpResponse {
     if (!httpRequest.body.name) {

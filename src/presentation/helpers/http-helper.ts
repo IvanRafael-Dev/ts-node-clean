@@ -12,7 +12,7 @@ export const serverError = (): HttpResponse => ({
   body: new InternalServerError()
 })
 
-export const ok = (body: AddAccountModel): HttpResponse => ({
+export const created = (body: AddAccountModel): HttpResponse => ({
   statusCode: 201,
   body
 })

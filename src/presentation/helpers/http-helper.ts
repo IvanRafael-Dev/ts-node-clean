@@ -1,5 +1,5 @@
 import { AddAccountModel } from './../../domain/useCases/add-account'
-import { InternalServerError } from './../errors/internal-server-error'
+import { InternalServerError } from './../errors'
 import { HttpResponse } from './../protocols/http'
 
 export const badRequest = (error: Error): HttpResponse => ({

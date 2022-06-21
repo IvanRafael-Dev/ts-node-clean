@@ -13,5 +13,9 @@ export const mongoHelper = {
   },
   getCollection (name: string): Collection {
     return this.mongoClient.db().collection(name)
-  }
+  },
+  accountMapper: (account: any): any => ({
+    id: account._id,
+    ...account
+  })
 }

@@ -9,8 +9,13 @@ describe('Account Mongo Repository', () => {
   beforeAll(async () => {
     await mongoHelper.connect(process.env.MONGO_URL)
   })
+
   afterAll(async () => {
     await mongoHelper.disconnect()
+  })
+
+  beforeEach(async () => {
+    await mongoHelper.getCollection('accounts').deleteMany({})
   })
 
   it('should return an account on success', async () => {

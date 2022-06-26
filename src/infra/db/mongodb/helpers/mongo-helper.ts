@@ -1,4 +1,12 @@
+import { AccountModel } from './../../../../domain/models/account'
 import { Collection, MongoClient } from 'mongodb'
+
+export interface MongoAccount {
+  _id: string
+  name: string
+  email: string
+  password: string
+}
 
 export const mongoHelper = {
   mongoClient: null as MongoClient,
@@ -14,8 +22,8 @@ export const mongoHelper = {
   getCollection (name: string): Collection {
     return this.mongoClient.db().collection(name)
   },
-  accountMapper: (account: any): any => ({
-    id: account._id,
+  accountMapper: ({ _id, ...account }: MongoAccount): AccountModel => ({
+    id: _id,
     ...account
   })
 }

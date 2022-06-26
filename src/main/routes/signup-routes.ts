@@ -1,7 +1,8 @@
 import { Router } from 'express'
+import { makeSignUpController } from '../factories/signup'
+import { adaptRoute } from './../adapters/express-route-adapter'
 
 export default (router: Router): void => {
-  router.post('/signup', (req, res) => {
-    return res.status(200).json({ message: req.body })
-  })
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  router.post('/signup', adaptRoute(makeSignUpController()))
 }

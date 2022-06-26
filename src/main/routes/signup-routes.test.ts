@@ -15,7 +15,7 @@ describe('Signup routes', () => {
     await mongoHelper.getCollection('accounts').deleteMany({})
   })
 
-  it('should return 200 and an account on success', async () => {
+  it('should return 201 and an account on success', async () => {
     await supertest(app)
       .post('/api/signup')
       .send({
@@ -24,6 +24,6 @@ describe('Signup routes', () => {
         password: 'any_password',
         passwordConfirmation: 'any_password'
       })
-      .expect(200)
+      .expect(201)
   })
 })
